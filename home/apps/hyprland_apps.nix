@@ -6,6 +6,7 @@
     ./blender.nix
     # ./wine.nix
     # ./webex.nix
+    ./bambu-studio.nix
  ];
 
   home.packages = (with pkgs; [
