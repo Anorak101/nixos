@@ -9,7 +9,7 @@
     (if desktop == "hyprland" then 
       [ 
         ./hyprland 
-        ./scripts/scripts.nix             # personal scripts
+        #./scripts/scripts.nix             # personal scripts
         ./apps/hyprland_minimal.nix
       ] else [ ])
     ++ (if desktop == "hyprland" && host != "iso" then 
@@ -22,33 +22,10 @@
       ] else [ ])
 
 
-    ++ (if host == "laptop" then
+    ++ (if host == "nixos" then
       [
         ./driver/solaar.nix
         ./programming_languages/all.nix
         ./cli
-      ] else [])
-    ++ (if host == "desktop" then
-      [
-        ./driver/solaar.nix
-        #./programming_languages/all.nix
-        ./apps/minecraft.nix
-        ./cli
-      ] else [])
-    ++ (if host == "iso" then
-      [
-        ./cli/minimal.nix
-        ./cli/terminal
-        ./cli/tmux.nix
-      ] else [])
-    ++ (if host == "asus" then
-      [
-        ./cli/minimal.nix
-      ] else [])
-    ++ (if host == "wsl" then
-      [
-        ./cli/minimal.nix
-        ./cli/tmux.nix
       ] else []);
-
 }

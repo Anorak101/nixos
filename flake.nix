@@ -2,7 +2,6 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs-2405.url = "github:nixos/nixpkgs/release-24.05";
     nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
@@ -11,29 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:MaartenBehn/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    # https://github.com/Frost-Phoenix/nixos-config/blob/main/flake.nix
-    nur.url = "github:nix-community/NUR";
     
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
 
@@ -84,40 +64,17 @@
     };
   };
   
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-2405, plasma-manager, solaar, vpn-confinement, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, solaar, vpn-confinement, ... }@inputs:
 
   let 
     system = "x86_64-linux";
-    pkgs-2405 = nixpkgs-2405.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     nix-version = "25.05";
 
     configs = [
       {
-        host = "laptop";
-        username = "stroby"; 
-        terminal = "kitty";
-        desktop = "hyprland";
-      }
-      {
-        host = "desktop";
-        username = "stroby";
-        terminal = "kitty";
-        desktop = "hyprland";
-      }
-      {
-        host = "asus";
-        username = "stroby"; 
-        domains = [ "stroby.duckdns.org" "stroby.ipv64.de" ];
-        local_domain = "home";
-      }
-      {
-        host = "wsl";
-        username = "nixos"; 
-      }
-      {
-        host = "iso";
-        username = "stroby"; 
+        host = "nixos";
+        username = "anorak";
         terminal = "kitty";
         desktop = "hyprland";
       }
@@ -127,7 +84,7 @@
     mkSystemName = config: 
         (if config.host == "iso" then "iso" else   
         (if config.host == "wsl" then "wsl" else   
-        "${config.username}-${config.host}")); 
+        "${config.host}"));
   in   
   {
     # Generate configs
@@ -142,7 +99,6 @@
             inherit nix-version;
             inherit system;
             inherit inputs;
-            inherit pkgs-2405;
             inherit pkgs-unstable;   
             username = config.username;
             host = config.host;
@@ -155,21 +111,20 @@
             add_optional = add_optional;
           };
           modules = [
-            ./configurations
+            ./config.nix
 
             inputs.home-manager.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+              home-manager.sharedModules = [  ];
 
-              home-manager.users."${config.username}" = import ./home;
+              home-manager.users."${config.username}" = import ./home.nix;
               home-manager.extraSpecialArgs = { 
                 inherit nix-version;
                 inherit system;
                 inherit inputs;
-                inherit pkgs-2405;
                 inherit pkgs-unstable;
                 username = config.username;
                 host = config.host;

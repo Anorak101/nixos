@@ -1,14 +1,11 @@
 { pkgs, ... }: {
   imports = [
     ./hyprland_minimal.nix
-    ./cava.nix
-    ./gonme-text-editor.nix
     ./obsidian.nix
-    ./thunderbird.nix
-    ./unity.nix
+    #./thunderbird.nix
     ./blender.nix
-    ./blender.nix
-    ./wine.nix
+    # ./wine.nix
+    # ./webex.nix
  ];
 
   home.packages = (with pkgs; [
@@ -16,7 +13,6 @@
     mpv                               # simple video player
     evince                            # simple pdf viewer
     imv                               # simple image viewer
-    f3d                               # simple 3d model viewer
 
     xdg-utils
 
@@ -25,18 +21,11 @@
     libreoffice
     
     webcamoid
-    obs-studio
     
     spotify
-    signal-desktop
-    obs-studio
-    telegram-desktop
     discord
     
     filezilla        
-    gimp                              # image editing
-    pitivi                            # video editing
-    audacity                          # Audio editing
     
     bleachbit                         # cache cleaner
     gnome-calculator                  # calculator

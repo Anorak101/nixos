@@ -1,5 +1,5 @@
-{ pkgs, ... }: let
-  wine_folder = /home/stroby/nixos/wine;
+{ pkgs, username, ... }: let
+  wine_folder = /home/${username}/nixos/wine;
   wine_apps = [
     {
       name = "MagicaVoxel";

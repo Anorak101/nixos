@@ -1,8 +1,11 @@
 { ... }: {
   imports = [
     ./c.nix
-    ./r.nix
+    # ./r.nix
     ./python.nix
-    ./zig.nix
+    ./vscodium.nix
+    ./miktex.nix
+    ./perl.nix
+    #./zig.nix
   ];
 }

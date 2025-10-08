@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   imports = [
     ./minimal.nix
-    ./create_iso.nix
-    ./create_wsl.nix
+    #./create_iso.nix
+    #./create_wsl.nix
   ];
 
   home.packages = (with pkgs; [
@@ -23,10 +23,8 @@
 
     presenterm                        # Terminal presentation tool
 
-    qbittorrent
+    #qbittorrent
     nftables
 
-    python313Packages.markitdown
-    docling
   ]);
 }

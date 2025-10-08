@@ -38,7 +38,6 @@ in {
     ## Used in aliases 
     fd
 
-    sops
   ];
 
   # Base Nix tools
