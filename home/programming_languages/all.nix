@@ -7,5 +7,6 @@
     ./miktex.nix
     ./perl.nix
     #./zig.nix
+    ./rider.nix
   ];
 }
