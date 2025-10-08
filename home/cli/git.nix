@@ -2,10 +2,18 @@
   programs.git = {
     enable = true;
 
-    userName = "Maarten Behn";
-    userEmail = "maarten.behn@gmail.com"; 
+    userName = "Anorak101";
+    userEmail = "anorak321@gmail.com"; 
+
 
     extraConfig = {
+      url = {
+        "git@github.com" = {
+          insteadOf = [
+            "https://github.com"
+          ];
+        };
+      };
       init.defaultBranch = "main";
       credential.helper = "store";
       merge.conflictstyle = "diff3";
