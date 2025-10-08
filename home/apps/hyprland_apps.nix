@@ -7,6 +7,7 @@
     # ./wine.nix
     # ./webex.nix
     ./bambu-studio.nix
+    ./godot.nix
  ];
 
   home.packages = (with pkgs; [
