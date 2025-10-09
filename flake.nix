@@ -73,7 +73,13 @@
 
     configs = [
       {
-        host = "nixos";
+        host = "PC";
+        username = "anorak";
+        terminal = "kitty";
+        desktop = "hyprland";
+      }
+      {
+        host = "laptop";
         username = "anorak";
         terminal = "kitty";
         desktop = "hyprland";

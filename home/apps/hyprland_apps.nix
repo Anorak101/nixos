@@ -8,6 +8,8 @@
     # ./webex.nix
     ./bambu-studio.nix
     ./godot.nix
+    ./gobuster.nix
+    ./open-vpn.nix
  ];
 
   home.packages = (with pkgs; [
