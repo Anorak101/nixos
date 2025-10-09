@@ -22,10 +22,17 @@
       ] else [ ])
 
 
-    ++ (if host == "nixos" then
+    ++ (if host == "laptop" then
       [
         ./driver/solaar.nix
         ./programming_languages/all.nix
         ./cli
-      ] else []);
+      ] else [])
+      ++ (if host == "PC" then
+      [
+        ./driver/solaar.nix
+        ./programming_languages/all.nix
+        ./cli
+      ] else []) ;
+
 }

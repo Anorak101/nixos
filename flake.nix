@@ -84,6 +84,12 @@
         terminal = "kitty";
         desktop = "hyprland";
       }
+      {
+        host = "nixos";
+        username = "anorak";
+        terminal = "kitty";
+        desktop = "hyprland";
+      }
     ];
 
     add_optional = name: (val: (else_val:  if (builtins.hasAttr name val) then val."${name}" else else_val));
