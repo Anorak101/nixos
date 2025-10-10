@@ -34,6 +34,8 @@
     
     # Fix Minecraft flickering
     # package = config.boot.kernelPackages.nvidiaPackages.beta;
+
+
   };
 
 

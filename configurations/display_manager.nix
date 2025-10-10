@@ -5,8 +5,8 @@
   services.displayManager.sddm.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  }; 
+#   services.xserver.xkb = {
+#     layout = "de";
+#     variant = "";
+#   };
 }

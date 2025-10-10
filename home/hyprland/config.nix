@@ -50,6 +50,10 @@
         middle_click_paste = false;
         enable_anr_dialog = false;
       };
+      
+      cursor = {
+        no_hardware_cursors = true; 
+      }; 
 
       binds = {
         movefocus_cycles_fullscreen = true;
