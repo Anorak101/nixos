@@ -33,6 +33,7 @@
         ./driver/solaar.nix
         ./programming_languages/all.nix
         ./cli
+        ./apps/ckan.nix
       ] else []) ;
 
 }

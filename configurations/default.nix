@@ -53,6 +53,7 @@
         ../hardware-configuration.nix
         
         # Drivers
+        ./bluetooh.nix
         ./bootloader.nix
         ./graphics.nix
         ./monitor_cpu_temp.nix
@@ -64,7 +65,7 @@
         ./usb_auto_mount.nix
         ./fix_stuck_on_tpmrm0.nix
         #./sops.nix
-
+        #./bzmenu.nix
         # Windows
         ./display_manager.nix
         ./window_manager

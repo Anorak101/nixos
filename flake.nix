@@ -45,8 +45,13 @@
       url = "github:ghostty-org/ghostty";
     };
 
-    zig.url = "github:mitchellh/zig-overlay";
+    
+    bzmenu = {
+      url ="github:e-tho/bzmenu";
+    };
 
+    zig.url = "github:mitchellh/zig-overlay";
+    
     nvf.url = "github:notashelf/nvf";
 
     solaar = {

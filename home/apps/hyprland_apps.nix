@@ -10,6 +10,7 @@
     ./godot.nix
     ./gobuster.nix
     ./open-vpn.nix
+    ./bluetui.nix
  ];
 
   home.packages = (with pkgs; [

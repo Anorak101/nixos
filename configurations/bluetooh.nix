@@ -1,4 +1,10 @@
-{...}: {
+{pkgs, ...}: {
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth.powerOnBoot = true;
+
+    #environment.systemPackages = [
+  #  pkgs.bluez
+  #];
+
+
 }
