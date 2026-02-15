@@ -34,6 +34,12 @@
         ./programming_languages/all.nix
         ./cli
         ./apps/ckan.nix
+        ./apps/hero_Launcher.nix
+        #./apps/bambu-studio.nix
+        ./apps/prismlauncher.nix
+        #./apps/zerotier.nix
+        ./apps/minecraft.nix
+        # ./apps/starcitizen.nix
       ] else []) ;
 
 }

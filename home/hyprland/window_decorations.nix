@@ -5,20 +5,20 @@
       "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
       "col.inactive_border" = "0x00000000";
       # border_part_of_window = false;
-      no_border_on_floating = false;
+      # no_border_on_floating = false;
       gaps_in = 3;
       gaps_out = 4;
     };
 
-    windowrule = [
+    #windowrule = [
       # No gaps when only
-      "bordersize 0, floating:0, onworkspace:w[t1]"
-      "rounding 0, floating:0, onworkspace:w[t1]"
-      "bordersize 0, floating:0, onworkspace:w[tg1]"
-      "rounding 0, floating:0, onworkspace:w[tg1]"
-      "bordersize 0, floating:0, onworkspace:f[1]"
-      "rounding 0, floating:0, onworkspace:f[1]"
-    ];
+      #"bordersize 0, floating:0, onworkspace:w[t1]"
+      #"rounding 0, floating:0, onworkspace:w[t1]"
+      #"bordersize 0, floating:0, onworkspace:w[tg1]"
+      #"rounding 0, floating:0, onworkspace:w[tg1]"
+      #"bordersize 0, floating:0, onworkspace:f[1]"
+      #"rounding 0, floating:0, onworkspace:f[1]"
+      #];
 
     workspace = [
       # No gaps when only

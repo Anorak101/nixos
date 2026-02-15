@@ -1,10 +1,17 @@
-{pkgs, ...}: {
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-    #environment.systemPackages = [
-  #  pkgs.bluez
-  #];
-
+{pkgs-unstable, ...}: {
+  environment.systemPackages = [
+    pkgs-unstable.bluez
+  ];
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        AutoEnable = true;
+        ControllerMode = "bredr";
+      };
+    };
+  };
+  services.blueman.enable = true;
 
 }

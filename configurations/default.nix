@@ -51,10 +51,12 @@
     ++ (if host == "PC" then
       [
         ../hardware-configuration.nix
-        
+        ./gearlever.nix        
+        ./flatpak.nix
         # Drivers
         ./bluetooh.nix
-        ./bootloader.nix
+        ./bzmenu.nix
+        #./bootloader.nix
         ./graphics.nix
         ./monitor_cpu_temp.nix
         ./networking.nix
@@ -65,18 +67,20 @@
         ./usb_auto_mount.nix
         ./fix_stuck_on_tpmrm0.nix
         #./sops.nix
-        #./bzmenu.nix
+        ./sbctl.nix
         # Windows
         ./display_manager.nix
         ./window_manager
-
+        ./zerotier.nix
         # Apps
         #./syncthing.nix
         #./wireguard.nix
-
+        # ./JRE25.nix
         # Gaming
         ./steam.nix
         #./mullvad_gui.nix
+        
+        ./alvr.nix
 
       ] else []);
 }

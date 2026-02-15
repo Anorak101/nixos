@@ -3,7 +3,7 @@ let
   nix-rebuild = pkgs.writeShellScriptBin "nix-rebuild" (''
     cd /home/$USER/nixos/
     git add --all
-    sudo nixos-rebuild switch --flake . --impure 
+    sudo nixos-rebuild switch --flake . --impure --show-trace 
   '' + (if desktop == "hyprland" then ''
     echo "Reloading hyprland:"
     hyprctl reload

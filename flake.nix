@@ -4,6 +4,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    
+    
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -67,9 +76,16 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-citizen.url = "github:LovingMelody/nix-citizen";  
+    # Optional - updates underlying without waiting for nix-citizen to update
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+
+
   };
   
-  outputs = { self, nixpkgs, nixpkgs-unstable, solaar, vpn-confinement, ... }@inputs:
+  outputs = { self, nixpkgs,lanzaboote,  nixpkgs-unstable, solaar, vpn-confinement, ... }@inputs:
 
   let 
     system = "x86_64-linux";
@@ -129,6 +145,24 @@
           };
           modules = [
             ./config.nix
+            
+            lanzaboote.nixosModules.lanzaboote
+
+            ({ pkgs, lib, ... }: {
+
+             # Lanzaboote currently replaces the systemd-boot module.
+             # This setting is usually set to true in configuration.nix
+             # generated at installation time. So we force it to false
+              # for now.
+              boot.loader.systemd-boot.enable = lib.mkForce false;
+
+              boot.lanzaboote = {
+               enable = true;
+               pkiBundle = "/var/lib/sbctl";
+              };
+            })
+
+
 
             inputs.home-manager.nixosModules.default
             inputs.home-manager.nixosModules.home-manager

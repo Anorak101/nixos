@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ prismlauncher ];
-}
+{ pkgs, pkgs-unstable, ... }: {
+  home.packages = (with pkgs; [modrinth-app]);
+  }

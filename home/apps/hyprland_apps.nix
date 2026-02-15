@@ -6,11 +6,12 @@
     ./blender.nix
     # ./wine.nix
     # ./webex.nix
-    ./bambu-studio.nix
+    #./bambu-studio.nix
     ./godot.nix
-    ./gobuster.nix
+    #./gobuster.nix
     ./open-vpn.nix
-    ./bluetui.nix
+    ./lutris.nix
+    ./gamescope.nix
  ];
 
   home.packages = (with pkgs; [
@@ -27,7 +28,7 @@
     
     webcamoid
     
-    spotify
+    #spotify
     discord
     
     filezilla        
